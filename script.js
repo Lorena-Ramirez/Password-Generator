@@ -11,27 +11,23 @@ var numbers = confirm("would you like numbers?");
 alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
   + specialChar + "\n Uppercase Letters: " + upperCase + "\n Lowercase Letters: " + lowerCase + "\n Numbers: " + numbers);
 
-  var passwordOptions = {
-    "upperCase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    "lowerCase": "abcdefghijklmnopqrstuvwxyz",
-    "numbers": "1234567890",
-    "specialChar": "!#$&’()*+,-./:;<=>?@[]^_`{|}~"
-  }
+  
+    var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
+    "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
 
+    var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+    "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+    var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
+    var specialChar = ["!","#","$","&", "’", "(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
+  
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function generatePassword(options,length,lower){
-var password;
-  for(var i = 0; i < length; i++){
 
-  if(lower){
-  var rndNum = Math.floor(Math.random()*26 + 1);
-  password = password.concat(options["lowerCase"][rndNum]);
-  }
-}
-return password.value;
 }
 
 function writePassword() {
