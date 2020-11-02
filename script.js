@@ -7,7 +7,13 @@ var numbers = confirm("would you like numbers?");
 alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
   + specialChar + "\n Uppercase Letters: " + upperCase + "\n Lowercase Letters: " + lowerCase + "\n Numbers: " + numbers);
 
-
+  var passwords = {
+    "upperCase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "lowerCase": "abcdefghijklmnopqrstuvwxyz",
+    "numbers": "1234567890",
+    "specialChar": "!#$&’()*+,-./:;<=>?@[]^_`{|}~"
+  }
+  
 
 
 
