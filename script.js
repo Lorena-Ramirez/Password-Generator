@@ -9,8 +9,13 @@ var upperCase = confirm(" Would you like uppercase letters?");
 var lowerCase = confirm("Would you like lowercase letters?");
 var numbers = confirm("would you like numbers?");
 
-while(specialChar === false|| upperCase || lowerCase || numbers ){
-
+// //If user does not chose a criteria then they will be asked to until they do so
+while(!specialChar && !upperCase && !lowerCase && !numbers ){
+alert("Must choose atleast one criteria.");
+var specialChar = confirm(" Would you like special characters? ");
+var upperCase = confirm(" Would you like uppercase letters?");
+var lowerCase = confirm("Would you like lowercase letters?");
+var numbers = confirm("would you like numbers?");
 }
 alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
   + specialChar + "\n Uppercase Letters: " + upperCase + "\n Lowercase Letters: " + lowerCase + "\n Numbers: " + numbers);
@@ -24,7 +29,7 @@ alert("Ok great! so your password will have will contain: \n Length: " + length 
 
     var numbersArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-    var specialCharArray =  ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+    var specialCharArray =  ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", " < ", "=", " > ", " ? ", "@", "[", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
   
     
 // Assignment Code
@@ -85,7 +90,7 @@ var newLength = length - password.length;
 
 //adds a new character to the password by chosing a random index from the array
 for(var i = 0; i < newLength; i++ ){
-  password = password.concat(passwordArray[randomNum(passwordArray)]);
+  password = password.concat(passwordArray[randomNum(passwordArray.length-1)]);
 }
 
 return shufflePassword(password);
