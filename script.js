@@ -54,22 +54,22 @@ var passwordArray = [];
 var password ="";
 
 if(lower){
-  password = password.concat(lowerArray[RandomNum(lowerArray.length-1)]);
+  password = password.concat(lowerArray[randomNum(lowerArray.length-1)]);
   passwordArray = passwordArray.concat(lowerArray);
 }
 
 if(upper){
-  password = password.concat(upperArray[RandomNum(upperArray.length-1)]);
+  password = password.concat(upperArray[randomNum(upperArray.length-1)]);
   passwordArray = passwordArray.concat(upperArray);
 }
 
 if(numbers){
-  password = password.concat(numbersArray[RandomNum(numbersArray.length-1)]);
+  password = password.concat(numbersArray[randomNum(numbersArray.length-1)]);
   passwordArray = passwordArray.concat(numbersArray);
 }
 
 if(special){
-  password = password.concat(specialArray[RandomNum(specialArray.length-1)]);
+  password = password.concat(specialArray[randomNum(specialArray.length-1)]);
   passwordArray = passwordArray.concat(specialArray);
 }
 
@@ -79,7 +79,7 @@ for(var i = 0; i < newLength; i++ ){
   password = password.concat(passwordArray[Math.floor(Math.random()*(passwordArray.length-1))])
 }
 
-return password;
+return shufflePassword(password);
 }
 
 function writePassword() {
