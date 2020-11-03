@@ -48,7 +48,7 @@ while(length <= 7 || length >= 129) {
   } 
   var specialChar = confirm(" Would you like the password to contain special characters? ");
   var upperCase = confirm(" Would you like the password to contain uppercase letters?");
-  var lowerCase = confirm("Would you like the password to contain letters?");
+  var lowerCase = confirm("Would you like the password to contain lowercase letters?");
   var numbers = confirm("Would you like the password to contain numbers?");
 
 // //If user does not chose a criteria then they will be asked to until they do so
@@ -56,7 +56,7 @@ while(!specialChar && !upperCase && !lowerCase && !numbers ){
 alert("Must choose atleast one criteria.");
 var specialChar = confirm(" Would you like the password to contain special characters? ");
 var upperCase = confirm(" Would you like the password to contain uppercase letters?");
-var lowerCase = confirm("Would you like the password to contain letters?");
+var lowerCase = confirm("Would you like the password to contain lowercase letters?");
 var numbers = confirm("Would you like the password to contain numbers?");
 }
 alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
@@ -65,26 +65,30 @@ alert("Ok great! so your password will have will contain: \n Length: " + length 
 var passwordArray = [];
 var password ="";
 
+// concats one random index to password and concats corresponding array to passwordArrays
+function passwordHandler(characterTypeArray){
+  
+    password = password.concat(characterTypeArray[randomNum(characterTypeArray.length-1)]);
+    passwordArray = passwordArray.concat(characterTypeArray);
+
+}
+
 //If the condition is true then adds a random index from that conditions loop to the password. 
 //Also adds conditions array to the password array
 if(lowerCase){
-  password = password.concat(lowerArray[randomNum(lowerArray.length-1)]);
-  passwordArray = passwordArray.concat(lowerArray);
+  passwordHandler(lowerCaseArray);
 }
 
 if(upperCase){
-  password = password.concat(upperArray[randomNum(upperArray.length-1)]);
-  passwordArray = passwordArray.concat(upperArray);
+  passwordHandler(upperCaseArray);
 }
 
 if(numbers){
-  password = password.concat(numbersArray[randomNum(numbersArray.length-1)]);
-  passwordArray = passwordArray.concat(numbersArray);
+  passwordHandler(numbersArray);
 }
 
 if(specialChar){
-  password = password.concat(specialArray[randomNum(specialArray.length-1)]);
-  passwordArray = passwordArray.concat(specialArray);
+  passwordHandler(specialCharArray);
 }
 
 //calculates how much of the password still needs to be generated
