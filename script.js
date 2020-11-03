@@ -27,13 +27,26 @@ alert("Ok great! so your password will have will contain: \n Length: " + length 
 var generateBtn = document.querySelector("#generate");
 
 //Random number function
-function RandomNum(n) {
+function randomNum(n) {
   return Math.floor(Math.random() * n);
 }
 
 //shuffle function
-
-
+function shufflePassword(p) {
+  var array = p.split('');           
+  var k = array.length;              
+  
+  for(var i = 0 ; i < k-1 ; ++i) {
+    var j = randomNum(k);       
+    
+    var temp = array[i];             
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  
+  p = array.join('');                
+  return p;    
+}         
 
 // Write password to the #password input
 function generatePassword(length,upper,lower,numbers,special,upperArray,lowerArray,numbersArray,specialArray){
@@ -62,7 +75,7 @@ if(special){
 
 var newLength = length - password.length;
 
-for(var i =0; i < newLength; i++ ){
+for(var i = 0; i < newLength; i++ ){
   password = password.concat(passwordArray[Math.floor(Math.random()*(passwordArray.length-1))])
 }
 
