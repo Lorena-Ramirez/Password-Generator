@@ -45,7 +45,10 @@ if(numbers){
   password = password.concat(numbersArray[Math.floor(Math.random()*(numbersArray.length-1))]);
   passwordArray = passwordArray.concat(numbersArray);
 }
-return password;
+if(special){
+  password = password.concat(specialArray[Math.floor(Math.random()*(specialArray.length-1))]);
+  passwordArray = passwordArray.concat(specialArray);
+}
 
 }
 
