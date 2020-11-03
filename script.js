@@ -53,7 +53,11 @@ if(special){
 
 var newLength = length - password.length;
 
+for(var i =0; i < newLength; i++ ){
+  password = password.concat(passwordArray[Math.floor(Math.random()*(passwordArray.length-1))])
+}
 
+return password;
 }
 
 function writePassword() {
