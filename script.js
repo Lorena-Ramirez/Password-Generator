@@ -36,6 +36,17 @@ if(lower){
   passwordArray = passwordArray.concat(lowerArray);
 }
 
+if(upper){
+  password = password.concat(upperArray[Math.floor(Math.random()*(upperArray.length-1))]);
+  passwordArray = passwordArray.concat(upperArray);
+}
+
+if(numbers){
+  password = password.concat(numbersArray[Math.floor(Math.random()*(numbersArray.length-1))]);
+  passwordArray = passwordArray.concat(numbersArray);
+}
+return password;
+
 }
 
 function writePassword() {
