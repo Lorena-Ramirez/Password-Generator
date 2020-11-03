@@ -8,6 +8,10 @@ var specialChar = confirm(" Would you like special characters? ");
 var upperCase = confirm(" Would you like uppercase letters?");
 var lowerCase = confirm("Would you like lowercase letters?");
 var numbers = confirm("would you like numbers?");
+
+while(specialChar === false|| upperCase || lowerCase || numbers ){
+
+}
 alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
   + specialChar + "\n Uppercase Letters: " + upperCase + "\n Lowercase Letters: " + lowerCase + "\n Numbers: " + numbers);
 
@@ -20,7 +24,7 @@ alert("Ok great! so your password will have will contain: \n Length: " + length 
 
     var numbersArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-    var specialCharArray = ["!","#","$","&", "’", "(",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
+    var specialCharArray =  ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
   
     
 // Assignment Code
@@ -28,6 +32,7 @@ var generateBtn = document.querySelector("#generate");
 
 //Random number function
 function randomNum(n) {
+  //generate random number 0 -n
   return Math.floor(Math.random() * n);
 }
 
@@ -53,6 +58,8 @@ function generatePassword(length,upper,lower,numbers,special,upperArray,lowerArr
 var passwordArray = [];
 var password ="";
 
+//If the condition is true then adds a random index from that conditions loop to the password. 
+//Also adds conditions array to the password array
 if(lower){
   password = password.concat(lowerArray[randomNum(lowerArray.length-1)]);
   passwordArray = passwordArray.concat(lowerArray);
@@ -73,10 +80,12 @@ if(special){
   passwordArray = passwordArray.concat(specialArray);
 }
 
+//calculates how much of the password still needs to be generated
 var newLength = length - password.length;
 
+//adds a new character to the password by chosing a random index from the array
 for(var i = 0; i < newLength; i++ ){
-  password = password.concat(passwordArray[Math.floor(Math.random()*(passwordArray.length-1))])
+  password = password.concat(passwordArray[randomNum(passwordArray)]);
 }
 
 return shufflePassword(password);
