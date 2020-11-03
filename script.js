@@ -1,24 +1,3 @@
-// Prompts for password criteria
-var length = prompt("How long do you want the password to be? (atleast 8 character , no more then 128)");
-while(length <= 7 || length >= 129) {
-  alert("Must be aleast 8 characters, no more then 128. Try again");
-  var length = prompt("How long do you want the password to be? (atleast 8 character , no more then 128)");
-  } 
-var specialChar = confirm(" Would you like special characters? ");
-var upperCase = confirm(" Would you like uppercase letters?");
-var lowerCase = confirm("Would you like lowercase letters?");
-var numbers = confirm("would you like numbers?");
-
-// //If user does not chose a criteria then they will be asked to until they do so
-while(!specialChar && !upperCase && !lowerCase && !numbers ){
-alert("Must choose atleast one criteria.");
-var specialChar = confirm(" Would you like special characters? ");
-var upperCase = confirm(" Would you like uppercase letters?");
-var lowerCase = confirm("Would you like lowercase letters?");
-var numbers = confirm("would you like numbers?");
-}
-alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
-  + specialChar + "\n Uppercase Letters: " + upperCase + "\n Lowercase Letters: " + lowerCase + "\n Numbers: " + numbers);
 
   //Criteria arrays
     var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
@@ -59,18 +38,41 @@ function shufflePassword(p) {
 }         
 
 // Write password to the #password input
-function generatePassword(length,upper,lower,numbers,special,upperArray,lowerArray,numbersArray,specialArray){
+function generatePassword(upperArray,lowerArray,numbersArray,specialArray){
+
+  // Prompts for password criteria
+var length = prompt("How long do you want the password to be? (atleast 8 character , no more then 128)");
+while(length <= 7 || length >= 129) {
+  alert("Must be aleast 8 characters, no more then 128. Try again");
+  var length = prompt("How long do you want the password to be? (atleast 8 character , no more then 128)");
+  } 
+  var specialChar = confirm(" Would you like the password to contain special characters? ");
+  var upperCase = confirm(" Would you like the password to contain uppercase letters?");
+  var lowerCase = confirm("Would you like the password to contain letters?");
+  var numbers = confirm("Would you like the password to contain numbers?");
+
+// //If user does not chose a criteria then they will be asked to until they do so
+while(!specialChar && !upperCase && !lowerCase && !numbers ){
+alert("Must choose atleast one criteria.");
+var specialChar = confirm(" Would you like the password to contain special characters? ");
+var upperCase = confirm(" Would you like the password to contain uppercase letters?");
+var lowerCase = confirm("Would you like the password to contain letters?");
+var numbers = confirm("Would you like the password to contain numbers?");
+}
+alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
+  + specialChar + "\n Uppercase Letters: " + upperCase + "\n Lowercase Letters: " + lowerCase + "\n Numbers: " + numbers);
+
 var passwordArray = [];
 var password ="";
 
 //If the condition is true then adds a random index from that conditions loop to the password. 
 //Also adds conditions array to the password array
-if(lower){
+if(lowerCase){
   password = password.concat(lowerArray[randomNum(lowerArray.length-1)]);
   passwordArray = passwordArray.concat(lowerArray);
 }
 
-if(upper){
+if(upperCase){
   password = password.concat(upperArray[randomNum(upperArray.length-1)]);
   passwordArray = passwordArray.concat(upperArray);
 }
@@ -80,7 +82,7 @@ if(numbers){
   passwordArray = passwordArray.concat(numbersArray);
 }
 
-if(special){
+if(specialChar){
   password = password.concat(specialArray[randomNum(specialArray.length-1)]);
   passwordArray = passwordArray.concat(specialArray);
 }
@@ -97,7 +99,7 @@ return shufflePassword(password);
 }
 
 function writePassword() {
-  var password = generatePassword(length,upperCase,lowerCase,numbers,specialChar,upperCaseArray,lowerCaseArray,numbersArray,specialCharArray);
+  var password = generatePassword(upperCaseArray,lowerCaseArray,numbersArray,specialCharArray);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
