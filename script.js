@@ -26,28 +26,37 @@ alert("Ok great! so your password will have will contain: \n Length: " + length 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//Random number function
+function RandomNum(n) {
+  return Math.floor(Math.random() * n);
+}
+
+//shuffle function
+
+
+
 // Write password to the #password input
 function generatePassword(length,upper,lower,numbers,special,upperArray,lowerArray,numbersArray,specialArray){
 var passwordArray = [];
 var password ="";
 
 if(lower){
-  password = password.concat(lowerArray[Math.floor(Math.random()*(lowerArray.length-1))]);
+  password = password.concat(lowerArray[RandomNum(lowerArray.length-1)]);
   passwordArray = passwordArray.concat(lowerArray);
 }
 
 if(upper){
-  password = password.concat(upperArray[Math.floor(Math.random()*(upperArray.length-1))]);
+  password = password.concat(upperArray[RandomNum(upperArray.length-1)]);
   passwordArray = passwordArray.concat(upperArray);
 }
 
 if(numbers){
-  password = password.concat(numbersArray[Math.floor(Math.random()*(numbersArray.length-1))]);
+  password = password.concat(numbersArray[RandomNum(numbersArray.length-1)]);
   passwordArray = passwordArray.concat(numbersArray);
 }
 
 if(special){
-  password = password.concat(specialArray[Math.floor(Math.random()*(specialArray.length-1))]);
+  password = password.concat(specialArray[RandomNum(specialArray.length-1)]);
   passwordArray = passwordArray.concat(specialArray);
 }
 
