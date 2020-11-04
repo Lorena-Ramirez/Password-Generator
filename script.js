@@ -32,7 +32,6 @@ function shufflePassword(p) {
     array[i] = array[j];
     array[j] = temp;
   }
-  
   p = array.join('');                
   return p;    
 }         
@@ -62,6 +61,7 @@ var numbers = confirm("Would you like the password to contain numbers?");
 alert("Ok great! so your password will have will contain: \n Length: " + length + " characters" + " \n Special Characters: "
   + specialChar + "\n Uppercase Letters: " + upperCase + "\n Lowercase Letters: " + lowerCase + "\n Numbers: " + numbers);
 
+
 var passwordArray = [];
 var password ="";
 
@@ -76,11 +76,11 @@ function passwordHandler(characterTypeArray){
 //If the condition is true then adds a random index from that conditions loop to the password. 
 //Also adds conditions array to the password array
 if(lowerCase){
-  passwordHandler(lowerCaseArray);
+  passwordHandler(lowerArray);
 }
 
 if(upperCase){
-  passwordHandler(upperCaseArray);
+  passwordHandler(upperArray);
 }
 
 if(numbers){
@@ -88,7 +88,7 @@ if(numbers){
 }
 
 if(specialChar){
-  passwordHandler(specialCharArray);
+  passwordHandler(specialArray);
 }
 
 //calculates how much of the password still needs to be generated
